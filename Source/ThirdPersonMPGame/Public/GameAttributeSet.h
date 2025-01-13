@@ -27,6 +27,10 @@ protected:
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UGameAttributeSet, Health)
 
+	UPROPERTY(BlueprintReadOnly, Category = "PlayerStats", ReplicatedUsing = OnRep_MaxHealth)
+	FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UGameAttributeSet, MaxHealth)
+
 	UPROPERTY(BlueprintReadOnly, Category = "PlayerStats", ReplicatedUsing = OnRep_Stamina)
 	FGameplayAttributeData Stamina;
 	ATTRIBUTE_ACCESSORS(UGameAttributeSet, Stamina)
@@ -50,5 +54,8 @@ protected:
 
 	UFUNCTION()
 	virtual void OnRep_MovementSpeed(const FGameplayAttributeData& OldMovementSpeed);
+
+	UFUNCTION()
+	virtual void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth);
 	
 };

@@ -9,6 +9,7 @@ void UGameAttributeSet::GetLifetimeReplicatedProps(TArray <FLifetimeProperty>& O
 	DOREPLIFETIME_CONDITION_NOTIFY(UGameAttributeSet, Stamina, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UGameAttributeSet, ShieldHealth, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UGameAttributeSet, MovementSpeed, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UGameAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
 }
 
 void UGameAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
@@ -29,4 +30,9 @@ void UGameAttributeSet::OnRep_ShieldHealth(const FGameplayAttributeData& OldShie
 void UGameAttributeSet::OnRep_MovementSpeed(const FGameplayAttributeData& OldMovementSpeed)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameAttributeSet, MovementSpeed, OldMovementSpeed);
+}
+
+void UGameAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameAttributeSet, MaxHealth, OldMaxHealth);
 }
